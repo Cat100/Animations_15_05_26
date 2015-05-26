@@ -9,17 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let testView: UIView = UIView(frame: CGRectMake(20, 100, 20, 20))
+        
+        view.addSubview(testView)
+        
+        let image: UIImage = UIImage(named: "stick1.png")!
+        let imageView: UIImageView = UIImageView(image: image)
+        
+        
+        testView.addSubview(imageView)
+        
+        var animation: CABasicAnimation = CABasicAnimation()
+            animation.keyPath = "position.x"
+            animation.fromValue = 20
+            animation.toValue = 280
+            animation.duration = 3
+        
+        testView.layer.addAnimation(animation, forKey: "basic")
+        
+        testView.layer.position = CGPointMake(280, 100)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+    
+    @IBOutlet weak var testView: UIView!
 
 }
 
