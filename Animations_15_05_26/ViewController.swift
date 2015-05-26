@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +19,6 @@ class ViewController: UIViewController {
         
         let image: UIImage = UIImage(named: "stick1.png")!
         let imageView: UIImageView = UIImageView(image: image)
-        
         
         testView.addSubview(imageView)
         
@@ -34,9 +32,5 @@ class ViewController: UIViewController {
         
         testView.layer.position = CGPointMake(280, 100)
     }
-    
-    
-    @IBOutlet weak var testView: UIView!
-
 }
 
