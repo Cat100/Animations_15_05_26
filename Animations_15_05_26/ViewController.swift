@@ -10,31 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var testView: UIView!
-    var testView2: UIView!
+    var imageView: UIImageView!
+    var imageView2: UIImageView!
+    var isFirstRun: Bool = true
+    var isFirstRun2: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testView = UIView(frame: CGRectMake(20, 100, 20, 20))
-        testView2 = UIView(frame: CGRectMake(20, 140, 20, 20))
-        
-        view.addSubview(testView)
-        view.addSubview(testView2)
-        
-        let image: UIImage = UIImage(named: "stick1.png")!
-        let imageView: UIImageView = UIImageView(image: image)
+         let image: UIImage = UIImage(named: "stick1.png")!
+        imageView = UIImageView(image: image)
         
         let image2: UIImage = UIImage(named: "stick1.png")!
-        let imageView2: UIImageView = UIImageView(image: image2)
-        
-        testView.addSubview(imageView)
-        testView.layer.position = CGPointMake(20, 100)
-        
-        testView2.addSubview(imageView2)
-        testView2.layer.position = CGPointMake(20, 140)
+        imageView2 = UIImageView(image: image2)
 
-
+        view.addSubview(imageView)
+        imageView.layer.position = CGPointMake(20, 100)
+        
+        view.addSubview(imageView2)
+        imageView2.layer.position = CGPointMake(20, 160)
     }
     
     @IBAction func button1(sender: AnyObject) {
@@ -42,21 +36,51 @@ class ViewController: UIViewController {
         var animation: CABasicAnimation = CABasicAnimation()
         animation.keyPath = "position.x"
         animation.fromValue = 20
-        animation.byValue = 180
-        animation.duration = 3
+        animation.byValue = nil//180
+        animation.toValue = 200
+        animation.duration = 2
+
+        imageView.layer.addAnimation(animation, forKey: "basic")
         
-        testView.layer.addAnimation(animation, forKey: "basic")
-        testView.layer.position = CGPointMake(200, 100)
+
+        imageView.layer.position = CGPointMake(200, 100)
         
+//        if imageView.layer.position == CGPointMake(200, 100) && isFirstRun {
+//            println("me")
+//        }
+
+    
         animation.beginTime = CACurrentMediaTime() + 0.5
         
-        testView2.layer.addAnimation(animation, forKey: "basic")
-        testView2.layer.position = CGPointMake(20, 140)
-        testView2.layer.position = CGPointMake(200, 140)
+        if imageView2.layer.position == CGPointMake(200, 160) {
+            println("here")
+        }
         
+        imageView2.layer.addAnimation(animation, forKey: "basic")
+        
+        if imageView2.layer.position == CGPointMake(200, 160) {
+            println("here")
+        }
+        
+        imageView2.layer.position = CGPointMake(200, 160)
+        
+        if imageView2.layer.position == CGPointMake(200, 160) && isFirstRun2 {
+            println("here")
+            isFirstRun = false
+            imageView2.layer.position = CGPointMake(20, 160)
+        }
+        
+        if animation.timeOffset == 0 {
+            println("dd")
+        }
+        
+    
     }
     
     
+    @IBAction func button02(sender: AnyObject) {
+        
+    }
     
     
     
