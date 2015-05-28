@@ -413,6 +413,7 @@
 				AF4817B41B14BF14009CAE5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF4817B51B14BF14009CAE5F /* Build configuration list for PBXNativeTarget "Animations_15_05_26Tests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				AF4817B71B14BF14009CAE5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
